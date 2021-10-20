@@ -10,14 +10,20 @@ let path={
     img:project_folder+"/assets/images/",
     icons:project_folder + "/assets/icons/",
     fonts:project_folder+"/assets/fonts/",
+    env:project_folder + "/",
   },
   src:{
     html:[source_folder+"/*.html", "!" + source_folder + "/_*.html"],
     css:source_folder+"/css/index.scss",
-    js:[source_folder+"/js/index.js", source_folder + "/js/revealator-master/fm.revealator.jquery.js",],
+    js:[
+    source_folder+"/js/index.js",
+    source_folder + "/js/revealator-master/fm.revealator.jquery.js",
+    source_folder + "/js/revealator-master/jquery-1.11.3.min.js",
+    ],
     img:source_folder+"/assets/images/**/*.{jpg,png,svg,gif,ico,webp}",
     icons:source_folder+"/assets/icons/**/*.{jpg,png,svg,gif,ico,webp}",
     fonts:source_folder+"/assets/fonts/*.ttf",
+    env:source_folder+"/.env",
   },
   watch:{
     html:source_folder+"/**/*.html",
@@ -25,6 +31,7 @@ let path={
     js:source_folder+"/js/**/*.js",
     img:source_folder+"/assets/icons/**/*.{jpg,png,svg,gif,ico,webp}",
     icons:source_folder+"/assets/images/**/*.{jpg,png,svg,gif,ico,webp}",
+    env:source_folder+"/.env",
   },
   clean:"./" + project_folder + "/"
 }
@@ -120,6 +127,11 @@ function fonts(){
   .pipe(browsersync.stream())
 }
 
+function env(){
+  return  src(path.src.env)
+  .pipe(dest(path.build.env))
+  .pipe(browsersync.stream())
+}
 
 
 function watchFiles(params){
@@ -127,14 +139,16 @@ function watchFiles(params){
   gulp.watch([path.watch.css],css);
   gulp.watch([path.watch.js],js);
   gulp.watch([path.watch.img],images);
+  gulp.watch([path.watch.env],env);
 }
 
 //  обьединяет , запускает Процесс выполнения. Паралель значит паральное выполнение
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts))
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts,env))
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 
 // По умолчанию при запуске Gulp будет выполнятся Watch, она в свою очередь содержет галп паралель который запустит браузерсинх
+exports.env = env;
 exports.fonts = fonts;
 exports.images = images;
 exports.js = js;
