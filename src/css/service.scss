@@ -1,0 +1,81 @@
+@import "index.scss";
+@import 'components/header.scss';
+@import "components/card-order.scss";
+
+.service {
+  margin: 0 auto;
+
+  &__steps-title {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 95px;
+  }
+
+  &__step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  &__step-number {
+    font-weight: bold;
+    font-size: 36px;
+    letter-spacing: 0.125em;
+    color: #6e70f7;
+    // margin-top:-20px;
+    margin-right: 35px;
+    
+  }
+
+  &__step-text {
+    // align-self: flex-start;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+  }
+}
+
+.service__header {
+  margin-top: 155px;
+  margin-bottom: 85px;
+}
+
+.service__title {
+  position: relative;
+  margin-bottom: 70px;
+  font-size: 30px;
+  letter-spacing: 0.05em;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.service__title::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  width: 540px;
+  height: 1px;
+  background-color: $accent;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.service__text {
+  margin: 0 auto;
+  width: 40%;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+}
+
+.service__card {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}

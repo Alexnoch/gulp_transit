@@ -1,0 +1,63 @@
+.card-order {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.card-order__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 460px;
+      flex-basis: 460px;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  padding: 40px 40px 20px 40px;
+  border: #6D00BF 2px solid;
+  border-radius: 16px;
+}
+
+.card-order__header {
+  margin-bottom: 30px;
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  letter-spacing: 0.05em;
+  color: #000000;
+}
+
+.card-order__text {
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin-bottom: 50px;
+}
+
+.card-order__button-buy {
+  line-height: 40px;
+  text-align: center;
+  border-radius: 8px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  width: 98px;
+  height: 40px;
+  color: white;
+  background-color: #6D00BF;
+}
+/*# sourceMappingURL=card-order.css.map */

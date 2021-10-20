@@ -1,0 +1,47 @@
+.card-order{
+    display: flex;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 460px;
+        flex-grow: 0;
+        flex-shrink: 1;
+        padding:40px 40px 20px 40px;
+        border:#6D00BF 2px solid;
+        border-radius: 16px;
+    }
+
+    &__header {
+        margin-bottom: 30px;
+        font-family: "Roboto";
+        font-weight: bold;
+        font-size: 30px;
+        display: flex;
+        letter-spacing: 0.05em;
+        color: #000000;
+    }
+
+    &__text {
+        font-size: 18px;
+        display: flex;
+        letter-spacing: 0.05em;
+        color: #000000;
+        margin-bottom: 50px;
+    }
+
+    &__button-buy {
+        line-height: 40px;
+        text-align: center;
+        border-radius: 8px;
+        align-self: flex-start;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        width: 98px;
+        height: 40px;
+        color:white;
+        background-color: #6D00BF;
+    }
+}
+

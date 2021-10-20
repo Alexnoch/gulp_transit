@@ -1,0 +1,254 @@
+@import "index.scss";
+@import "./components/header.scss";
+@import "components/articles-big.scss";
+@import "components/articles-middle.scss";
+
+.articles {
+  margin: 0 auto;
+  padding:0 10px;
+}
+
+.articles__header {
+  margin-top: 155px;
+  margin-bottom: 85px;
+
+  @media (max-width: 580px) {
+   margin-top: 100px;
+  }
+}
+
+.articles__title {
+  position: relative;
+  margin-bottom: 70px;
+  font-size: 30px;
+  letter-spacing: 0.05em;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-align: center;
+
+  @media(max-width:580px){
+    font-size: 24px;
+  }
+}
+
+.articles__title::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  width: 540px;
+  height: 1px;
+  background-color: $accent;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  @media(max-width:580px){
+    width:100px;
+  }
+
+}
+
+.articles__text {
+  margin: 0 auto;
+  width: 40%;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+}
+
+.articles__rubric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+
+  @media(max-width:580px){
+    margin-bottom: 40px;
+  }
+}
+
+.articles__rubric-list {
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 57px !important;
+
+  li {
+    margin-right: 47px;
+  }
+}
+
+.articles__rubric-item {
+  text-decoration: none;
+  color: #000000;
+  letter-spacing: 0.125em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.articles__rubric-item:hover {
+  color: $accent;
+}
+
+.articles__submenu-language {
+  display: none;
+}
+
+.articles__submenu-item {
+  margin-right: 40px;
+  padding: 10px 20px;
+  background-color: #e5c3ff;
+  text-decoration: none;
+  color: $accent;
+  letter-spacing: 0.125em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+
+  @media(max-width:580px){
+    padding: 5px 10px;
+    margin-right: 15px;
+    font-size: 10px;
+  }
+}
+
+.articles__submenu-item:hover {
+  color: white;
+  background-color: $accent;
+}
+
+.articles__submenu-guide {
+  display: none;
+}
+
+.articles__top-container {
+  margin-bottom: 60px;
+
+  @media (max-width: 580px) {
+   margin-bottom: 20px;
+  }
+}
+
+.articles__submenu-other {
+  display: none;
+}
+
+.articles__bottom-container {
+  display: flex;
+  justify-content: space-between;
+
+  @media(max-width:768px){
+    flex-direction: column;
+  }
+}
+
+.article__button-more {
+  width: 150px;
+  height: 40px;
+  border: 2px solid $accent;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.article__button-more-link {
+  position: relative;
+  margin-left: -25px;
+  text-decoration: none;
+  color: $accent;
+  line-height: 40px;
+  letter-spacing: 0.06em;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.article__btn-arrow {
+  position: absolute;
+  right: -25px;
+  top: 3px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #6e18c0;
+  border-right: 2px solid #6e18c0;
+  transform: rotate(45deg);
+}
+
+.articles_flex-row {
+  margin-top: 140px;
+  display: flex;
+  flex-wrap: wrap;
+
+  .article-middle {
+    width: 305px;
+  }
+}
+
+.articles__btn-back {
+  position: absolute;
+  display: block;
+  margin-top: -40px;
+  text-decoration: none;
+}
+
+.single-article {
+  margin: 100px auto 50px auto;
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    margin: 0 auto;
+
+    @media(max-width:580px){
+      width:300px;
+      height:200px;
+    }
+
+    img {
+      object-fit: cover;
+      height: 400px;
+      width: 500px;
+
+      @media(max-width:580px){
+        max-width:100%;
+        height:100%;
+        object-fit: fill;
+      }
+    }
+  }
+
+  &__date {
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+
+    @media(max-width:580px){
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;
+    color: #6d00bf;
+
+    @media(max-width:580px){
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+
+    @media(max-width:580px){
+      font-size: 16px;
+    }
+  }
+}
+
+
