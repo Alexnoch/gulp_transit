@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/service.css">
+    <link rel="stylesheet" type="text/css" href="css/service.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -12,12 +12,13 @@
 </head>
 <body>
      <!-- Header -->
-  <div class="header">
+     <div class="header">
     <div class="header__container">
       <div class="header__menu">
         <div class="header__logo">
           <img src="assets/icons/Logotip.png" alt="logo" />
         </div>
+        <!-- Меню бургер -->
         <div class="mobile">
           <div>
             <span></span>
@@ -36,7 +37,7 @@
         </div>
         <div class="header__nav">
           <li class="header__nav-item">
-            <a id="homePage" href="/index.html">Главная</a>
+            <a id="homePage" class="active" href="/index.html">Главная</a>
           </li>
           <li class="header__nav-item">
             <a id="works" href="/articles.html">Мои статьи</a>
@@ -45,16 +46,23 @@
             <a id="works" href="/works.html">Мои работы</a>
           </li>
           <li class="header__nav-item">
-            <a id="servis" class="active"  href="/service.html">Услуги</a>
+            <a id="servis" href="service.html">Услуги</a>
           </li>
           <li class="header__nav-item skipRightMargin">
             <a id="contacts" href="#">Контакты</a>
           </li>
         </div>
         <div class="header__social">
-          <a href="http://vk.com/jaclon"><img src="/assets/icons/Vk.png" alt="vk"></a>
-          <a href="#form"><img src="/assets/icons/mail.png" alt="mail"></a>
-          <a href="http://github.com/alexnoch"><img class="skipRightMargin" src="/assets/icons/git.png" alt="github"></a>
+          <a href="http://vk.com/jaclon"
+            ><img src="/assets/icons/Vk.png" alt="vk"
+          /></a>
+          <a href="#form"><img src="/assets/icons/mail.png" alt="mail" /></a>
+          <a href="http://github.com/alexnoch"
+            ><img
+              class="skipRightMargin"
+              src="/assets/icons/git.png"
+              alt="github"
+          /></a>
         </div>
         <div class="header__button">
           <a href="#form">Связаться со мной</a>
@@ -117,7 +125,8 @@
     </div>
   </div>
    <!-- Footer -->
-   <div class="footer container">
+    <!-- Footer -->
+ <div class="footer container">
     <div class="footer__social">
       <div class="footer__social-container">
         <div class="footer__social-icon">
@@ -137,8 +146,15 @@
     <div class="footer__bottom">
       <div class="footer__conficial">Политика конфиденциальности</div>
       <div class="footer__copyright">&copy 2021, Alex Noch</div>
-      <div class="footer__designAutor">Дизайн: <a href="https://www.behance.net/olegmurga "><span>Oleg Murga</span></a></div>
+      <div class="footer__designAutor">
+        Дизайн:
+        <a href="https://www.behance.net/olegmurga "
+          ><span>Oleg Murga</span></a
+        >
+      </div>
     </div>
   </div>
+   <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+   <script type="text/javascript" src="js/index.min.js"></script>
 </body>
 </html>

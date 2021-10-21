@@ -4,70 +4,16 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="css/service.css" />
+  <link rel="stylesheet" type="text/css" href="css/articles.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="css/articles.css" />
   <title>Alexnoch Portfolio</title>
 </head>
 
 <body>
-  <!-- Header -->
-  <div class="header">
-    <div class="header__container">
-      <div class="header__menu">
-        <div class="header__logo">
-          <img src="assets/icons/Logotip.png" alt="logo" />
-        </div>
-               <!-- Меню бургер -->
-               <div class="mobile">
-                <div>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <nav>
-                  <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a class="border-active" href="articles.html">Мои статьи</a></li>
-                    <li><a href="works.html">Мои работы</a></li>
-                    <li><a href="service.html">Услуги</a></li>
-                    <li><a href="#link">Контакты</a></li>
-                  </ul>
-                </nav>
-              </div>
-        <div class="header__nav">
-          <li class="header__nav-item">
-            <a id="homePage" href="/index.html">Главная</a>
-          </li>
-          <li class="header__nav-item">
-            <a id="works" class="active" href="/articles.html">Мои статьи</a>
-          </li>
-          <li class="header__nav-item">
-            <a id="works" href="/works.html">Мои работы</a>
-          </li>
-          <li class="header__nav-item">
-            <a id="servis" href="/service.html">Услуги</a>
-          </li>
-          <li class="header__nav-item skipRightMargin">
-            <a id="contacts" href="#">Контакты</a>
-          </li>
-        </div>
-        <div class="header__social">
-          <a href="http://vk.com/jaclon"><img src="/assets/icons/Vk.png" alt="vk" /></a>
-          <a href="#form"><img src="/assets/icons/mail.png" alt="mail" /></a>
-          <a href="http://github.com/alexnoch"><img class="skipRightMargin" src="/assets/icons/git.png"
-              alt="github" /></a>
-        </div>
-        <div class="header__button">
-          <a href="#form">Связаться со мной</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  @@include('./components/_header.html')
   <div class="articles container">
-    
     <div class="articles__header">
       <p class="articles__title">Мои статьи</p>
     </div>
@@ -117,40 +63,11 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <div class="footer container">
-    <div class="footer__social">
-      <div class="footer__social-container">
-        <div class="footer__social-icon">
-          <img src="assets/icons/vkf.png" />
-          <p>vk.com/jaclon</p>
-        </div>
-        <div class="footer__social-icon">
-          <img src="assets/icons/mailf.png" />
-          <p>alexworknoch@mail.ru</p>
-        </div>
-        <div class="footer__social-icon">
-          <img src="assets/icons/telf.png" />
-          <p>telegram.com/alexnoch1</p>
-        </div>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="footer__conficial">Политика конфиденциальности</div>
-      <div class="footer__copyright">&copy 2021, Alex Noch</div>
-      <div class="footer__designAutor">
-        Дизайн:
-        <a href="https://www.behance.net/olegmurga "><span>Oleg Murga</span></a>
-      </div>
-    </div>
-  </div>
+  @@include('./components/_footer.html')
   <!-- Libray -->
-  <link rel="stylesheet" href="js/revealator-master/fm.revealator.jquery.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-  <script src="/js/revealator-master/jquery-1.11.3.min.js"></script>
-  <script src="js/revealator-master/fm.revealator.jquery.js"></script>
-  <!-- <script type="module" src="js/data-articles.js"></script> -->
-  <script src="js/index.js"></script>
+  <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="js/articles.min.js"></script>
+  <script type="text/javascript" src="js/index.min.js"></script>
 </body>
 
 </html>

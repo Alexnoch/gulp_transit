@@ -1,7 +1,7 @@
 
 let project_folder="dist";
 let source_folder="src";
-
+// Пути ввода и вывода
 let path={
   build:{
     html:project_folder+"/",
@@ -10,20 +10,19 @@ let path={
     img:project_folder+"/assets/images/",
     icons:project_folder + "/assets/icons/",
     fonts:project_folder+"/assets/fonts/",
-    env:project_folder + "/",
+    components:project_folder + "/css/components/"
   },
   src:{
-    html:[source_folder+"/*.html", "!" + source_folder + "/_*.html"],
-    css:source_folder+"/css/index.scss",
+    html:[source_folder+"/*.html", "!" + source_folder + "/components/_*.html"],
+    css:source_folder+"/css/*.scss",
     js:[
-    source_folder+"/js/index.js",
-    source_folder + "/js/revealator-master/fm.revealator.jquery.js",
-    source_folder + "/js/revealator-master/jquery-1.11.3.min.js",
+    source_folder+"/js/*.js",
+    source_folder + "/js/revealator-master/*.js",
     ],
     img:source_folder+"/assets/images/**/*.{jpg,png,svg,gif,ico,webp}",
     icons:source_folder+"/assets/icons/**/*.{jpg,png,svg,gif,ico,webp}",
     fonts:source_folder+"/assets/fonts/*.ttf",
-    env:source_folder+"/.env",
+    components: source_folder + "/css/components/*.scss",
   },
   watch:{
     html:source_folder+"/**/*.html",
@@ -31,15 +30,14 @@ let path={
     js:source_folder+"/js/**/*.js",
     img:source_folder+"/assets/icons/**/*.{jpg,png,svg,gif,ico,webp}",
     icons:source_folder+"/assets/images/**/*.{jpg,png,svg,gif,ico,webp}",
-    env:source_folder+"/.env",
+    components: source_folder + "/css/components/*.scss",
   },
   clean:"./" + project_folder + "/"
 }
-
+// Стандартное подключение галпа
 let {src, dest} = require('gulp'),
 gulp = require('gulp'),
 // Плагины 
-// Обновляет браузер
 browsersync = require("browser-sync").create();
 fileinclude = require('gulp-file-include');
 del = require("del")
@@ -51,6 +49,8 @@ rename = require("gulp-rename");
 uglify = require("gulp-uglify-es").default
 // imagemin = require("gulp-imagemin")
 
+
+// Функции которые обрабатывают файлы при переносе
 function browserSync(params){
   browsersync.init({
     server:{
@@ -74,34 +74,43 @@ function html(){
 }
 
 function css(){
-  return src(path.src.css)
-   .pipe(
-     scss({
-       outputStyle:"expanded"
-     })
-   )
-   .pipe(group_media())
-   .pipe(
-     autoprefixer({
-       overrideBrowserslist:["last 5 version"],
-       cascade: true
-     })
-   )
-  .pipe(dest(path.build.css))
-  .pipe(clean_css())
+  src(path.src.components)
   .pipe(
-    rename({
-      extname:".min.css"
+    scss({
+      outputStyle:"expanded"
     })
   )
-  .pipe(dest(path.build.css))
-  .pipe(browsersync.stream())
+    .pipe(dest(path.build.components))
+    .pipe(browsersync.stream())
+
+    return src(path.src.css)
+    .pipe(
+      scss({
+        outputStyle:"expanded"
+      })
+    )
+    .pipe(group_media())
+    .pipe(
+      autoprefixer({
+        overrideBrowserslist:["last 5 version"],
+        cascade: true
+      })
+    )
+  //  .pipe(dest(path.build.css))
+   .pipe(clean_css())
+   .pipe(
+     rename({
+       extname:".min.css"
+     })
+   )
+   .pipe(dest(path.build.css))
+   .pipe(browsersync.stream())
 }
 
 function js(){
   return src(path.src.js)
     .pipe(fileinclude())
-    .pipe(dest(path.build.js))
+    // .pipe(dest(path.build.js))
     .pipe(uglify())
     .pipe(
       rename({
@@ -127,28 +136,17 @@ function fonts(){
   .pipe(browsersync.stream())
 }
 
-function env(){
-  return  src(path.src.env)
-  .pipe(dest(path.build.env))
-  .pipe(browsersync.stream())
-}
-
-
 function watchFiles(params){
   gulp.watch([path.watch.html],html);
   gulp.watch([path.watch.css],css);
   gulp.watch([path.watch.js],js);
   gulp.watch([path.watch.img],images);
-  gulp.watch([path.watch.env],env);
 }
 
-//  обьединяет , запускает Процесс выполнения. Паралель значит паральное выполнение
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts,env))
+// При сборке запускает эти функции + при ватче
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts))
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
-
-// По умолчанию при запуске Gulp будет выполнятся Watch, она в свою очередь содержет галп паралель который запустит браузерсинх
-exports.env = env;
 exports.fonts = fonts;
 exports.images = images;
 exports.js = js;
@@ -157,4 +155,3 @@ exports.html = html;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;
-// ----------------------------------
