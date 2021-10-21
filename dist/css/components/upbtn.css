@@ -1,0 +1,27 @@
+.upbtn {
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  color: #FFF;
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  cursor: pointer;
+  border: 4px solid #e5c3ff;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: all 0.7s ease-in-out;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #6d00bf;
+  background-image: url("./../../assets/icons/arrowup.svg");
+}
+@media (max-width: 992px) {
+  .upbtn {
+    left: 10px;
+  }
+}
+
+.upbtn:hover {
+  transform: scale(1.2) !important;
+}

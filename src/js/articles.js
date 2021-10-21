@@ -3,12 +3,16 @@
 const loadSigleArticle = (article)=>{
     const articleTemp = `
     <div class="single-article">
+    <a class="single-article__breadCrumbs" href="articles.html">Статьи-> </a><a>${article[0].title}</a>
       <div class="single-article__image">
         <img src="${article[0].image}" alt="photo" />
       </div>
       <p class="single-article__date">${article[0].date}</p>
       <h4 class="single-article__title">${article[0].title}</h4>
-      <p class="single-article__text">${article[0].text}</p>
+      <p class="single-article__text">${article[0].text}</p>  
+      <div class="single-article__back-container">
+        <a class="single-article__back" href="articles.html">Назад</a>
+      </div>
     </div>
     `
     return articleTemp;
@@ -134,13 +138,13 @@ const loadSigleArticle = (article)=>{
    
     switch (activeMenu) {
       case "articles-languages":
-        $(container).addClass('articles_flex-row').html(`<a class="articles__btn-back" href="articles.html">Назад</a> ${loadTemplateM(findSection("languages"),8)}`)
+        $(container).addClass('articles_flex-row').html(`<a class="articles__btn-back" href="articles.html">Все статьи -> Языки </a> ${loadTemplateM(findSection("languages"),8)}`)
         break;
       case "articles-guides":
-        $(container).addClass('articles_flex-row').html(`<a class="articles__btn-back" href="articles.html">Назад</a> ${loadTemplateM(findSection("guides"),4)}`)
+        $(container).addClass('articles_flex-row').html(`<a class="articles__btn-back" href="articles.html">Все статьи -> Гайды</a> ${loadTemplateM(findSection("guides"),4)}`)
         break;
       case "articles-others":
-        $(container).addClass('articles_flex-row').html(`<a class="articles__btn-back" href="articles.html">Назад</a> ${loadTemplateM(findSection("others"),2)}`)
+        $(container).addClass('articles_flex-row').html(`<a class="articles__btn-back" href="articles.html">Все статьи -> Остальное</a> ${loadTemplateM(findSection("others"),2)}`)
         break;
     }
     loadOn();
