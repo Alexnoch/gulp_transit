@@ -161,4 +161,14 @@ const loadSigleArticle = (article)=>{
   //     $('.revealator-slideleft').removeClass('revealator-slideleft')
   //  }
   })
+
+
+  // AJAX - Запросы на сервер
+
+  const btnServer = $('#serverArticles');
+
+  btnServer.on('click',()=>{
+    console.log('use')
+    $.get("http://localhost:3005/about")
+  })
   
