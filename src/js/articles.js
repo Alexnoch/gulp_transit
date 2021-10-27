@@ -168,7 +168,17 @@ const loadSigleArticle = (article)=>{
   const btnServer = $('#serverArticles');
 
   btnServer.on('click',()=>{
-    console.log('use')
-    $.get("http://localhost:3005/about")
+
+    $.ajax({
+      method:"GET",
+      url: "http://localhost:3005/admin",
+      dataType:"json",
+      data:{"alexnoch":"articles"},
+      success:(data) => {
+        console.log(data)
+         $('body').html(data)  
+        
+        }
+    })
   })
   
