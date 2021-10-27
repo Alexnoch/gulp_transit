@@ -9,16 +9,14 @@ const initDataBase = require('./dataBase/index.js');
 
 
 
-const router = require('./routes/user.js');
-
-
-
-const data = require('./articles-data.js');
+const users = require('./routes/user.js');
+const articles = require('./routes/articles.js');
 
 initDataBase();
 
 
-app.use('/user', router);
+app.use('/user', users);
+app.use('/articles', articles);
 
 
 

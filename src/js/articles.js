@@ -150,35 +150,53 @@ const loadSigleArticle = (article)=>{
     loadOn();
   })
   
+  // AJAX - Запросы на сервер
+
+const initArticles = ()=>{
+  $.ajax({
+    method:"GET",
+    url: "http://localhost:3005/articles",
+    dataType:"json",
+    data:{"count":"2"},
+    success:(data) => {
+      const articlesData = data;
+      const amount = 1;
+      $(bigContainer).html(loadTemplate(articlesData, amount))
+      $(middleContainer).html(loadTemplateM(articlesData, amount))
+      }
+  })
+}
+
+  // const btnServer = $('#serverArticles');
+
+  // btnServer.on('click',()=>{
+
+  //   $.ajax({
+  //     method:"GET",
+  //     url: "http://localhost:3005/articles",
+  //     dataType:"json",
+  //     // data:{"alexnoch":"articles"},
+  //     success:(data) => {
+  //       console.log(data)
+  //       const response = `
+  //         <div> ${data.text} </div>
+  //       `
+  //        $('.articles').html(response)  
+        
+  //       }
+  //   })
+  // })
+  
   $(document).ready(() => {
-    const articlesData = data.filter((el,idx)=>el.rubric === 'rubricHtml')
-    const amount = 3;
-    $(bigContainer).html(loadTemplate(articlesData, amount))
-    $(middleContainer).html(loadTemplateM(articlesData, amount))
+    // const articlesData = data.filter((el,idx)=>el.rubric === 'rubricHtml')
+    // console.log(articlesData,'Дата Актиклс')
+    // const amount = 2;
+    // $(bigContainer).html(loadTemplate(articlesData, amount))
+    // $(middleContainer).html(loadTemplateM(articlesData, amount))
+    initArticles()
     loadOn();
   //   if(1150 > window.innerWidth){
   //     $('.revealator-slideright').removeClass('revealator-slideright')
   //     $('.revealator-slideleft').removeClass('revealator-slideleft')
   //  }
   })
-
-
-  // AJAX - Запросы на сервер
-
-  const btnServer = $('#serverArticles');
-
-  btnServer.on('click',()=>{
-
-    $.ajax({
-      method:"GET",
-      url: "http://localhost:3005/admin",
-      dataType:"json",
-      data:{"alexnoch":"articles"},
-      success:(data) => {
-        console.log(data)
-         $('body').html(data)  
-        
-        }
-    })
-  })
-  
