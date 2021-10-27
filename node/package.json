@@ -9,6 +9,11 @@
   "author": "Alexnoch",
   "license": "ISC",
   "devDependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14",
+    "util": "^0.12.4"
+  },
+  "dependencies": {
+    "mongoose": "^6.0.12"
   }
 }
