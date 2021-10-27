@@ -1,68 +1,27 @@
 const fs = require('fs');
 const path = require('path')
+
 var express = require('express');
-const mongoose = require('mongoose')
 var app = express();
+
+const mongoose = require('mongoose');
+const initDataBase = require('./dataBase/index.js');
+
+
+
+const router = require('./routes/user.js');
+
+
 
 const data = require('./articles-data.js');
 
-mongoose.connect('mongodb+srv://alexnoch135:44335522@cluster0.brals.mongodb.net/apiblog?retryWrites=true&w=majority',{useNewUrlParser:true})
-.then(()=>{console.log('DB CONNECTED!!!')})
-.catch((err)=>{console.log(err,'DB IS NOT CONNECTED')})
+initDataBase();
 
 
-const UsersSchema = new mongoose.Schema({
-   name:{
-      type:String,
-      required:true,
-   },
-   email:{
-      type:String,
-      required:true
-   }
-})
+app.use('/user', router);
 
 
-const Users = mongoose.model('users', UsersSchema);
-Users.find({name: "Alexnoch"}).then((user)=>{console.log(user)})
 
-
-const sendAdmin  = (res) =>{
-   console.log('Зашёл в функцию 3')
-   res.set("Content-Type","text/html");
-   res.set("Access-Control-Allow-Origin","*" )
-   res.set("Access-Control-Allow-Methods","GET, OPTIONS" )
-   res.set("Access-Control-Allow-Headers","Content-Type" )
-   res.status(200);
-   res.sendFile(path.join(__dirname,"admin.html"))
-}
-
-   app.get('/', function(req, res){
-    res.type('text/plain');
-    res.send('Meadowlark Travel');
-   });
-
-   app.get('/articles', function(req, res){
-    res.set("Content-Type","application/json");
-    res.set("Access-Control-Allow-Origin","*" )
-    res.set("Access-Control-Allow-Methods","GET, OPTIONS" )
-    res.set("Access-Control-Allow-Headers","Content-Type" )
-    res.type('text/plain');
-    res.status(200);
-    res.send(JSON.stringify(data));
-   });
-
-   app.get('/admin', (req,res)=>{
-      console.log(req.query)
-      const login = req.query;
-      if(login.alexnoch === 'articles'){
-         // res.send(JSON.stringify({status:"OK"})) 
-         console.log('Авторизировался')
-        sendAdmin(res);
-      }else{
-         res.send(JSON.stringify({status:"FALSE"}))
-      }
-   })
 
 // пользовательская страница 404
    app.use(function(req, res){
@@ -109,3 +68,46 @@ const sendAdmin  = (res) =>{
    //    console.log('Зашёло в условие')
    //  return data.toString();
    // }})
+
+
+
+
+   // Старая версия 
+
+//    mongoose.connect('mongodb+srv://alexnoch135:44335522@cluster0.brals.mongodb.net/apiblog?retryWrites=true&w=majority',{useNewUrlParser:true})
+// .then(()=>{console.log('DB CONNECTED!!!')})
+// .catch((err)=>{console.log(err,'DB IS NOT CONNECTED')})
+
+
+// const UsersSchema = new mongoose.Schema({
+//    name:{
+//       type:String,
+//       required:true,
+//    },
+//    email:{
+//       type:String,
+//       required:true
+//    }
+// })
+
+// const Users = mongoose.model('users', UsersSchema);
+// console.log(typeof Users,'Юзеры')
+
+// Users.find({name: "Alexnoch"}).then((user)=>{console.log(user)})
+
+
+
+
+
+
+// Рабочий вариант 2 
+
+// const model = require("./dataBase/models/index.js")
+
+// const data = require('./articles-data.js');
+
+// console.log(typeof model)
+// initDataBase();
+
+// model.Users.findOne({name: "Alexnoch"}).then((user)=>{console.log(user)})
+
