@@ -60,7 +60,7 @@ const loadSingle = (id) =>{
   console.log('ФУнкция единственного нажатия')
   $.ajax({
     method: "GET",
-    url: `${local}/articles/one`,
+    url: `${server}/articles/one`,
     dataType: "json",
     data: {
       "id": id,
@@ -78,7 +78,7 @@ const loadListArt = (count,section,rubric) =>{
   const container = $('.articles');
   $.ajax({
     method: "GET",
-    url: `${local}/articles`,
+    url: `${server}/articles`,
     dataType: "json",
     data: {
       "count": count,
@@ -99,7 +99,7 @@ const loadRubricArt = (count,rubric) =>{
   console.log('API-> rubric funct')
   $.ajax({
     method: "GET",
-    url: `${local}/articles/rubric`,
+    url: `${server}/articles/rubric`,
     dataType: "json",
     data: {
       "count": count,
@@ -118,7 +118,7 @@ const initArticles = (count, section, rubric) => {
   const amount = 3
   $.ajax({
     method: "GET",
-    url: `${local}/articles`,
+    url: `${server}/articles`,
     dataType: "json",
     data: {
       "count": count,
