@@ -14,6 +14,8 @@ const articles = require('./routes/articles.js');
 initDataBase();
 
 app.use(cors());
+
+app.use(express.static('./../dist'));
 app.use('/user', users);
 app.use('/articles', articles);
 
@@ -64,7 +66,7 @@ app.use('/articles', articles);
 
 
 
-   
+
 // УСТАНОВКА КУК из книги ---------------------------
 // app.use(require('cookie-parser')(credentials.cookieSecret));
 
