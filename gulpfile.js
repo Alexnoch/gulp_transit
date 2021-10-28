@@ -27,7 +27,7 @@ let path={
   watch:{
     html:source_folder+"/**/*.html",
     css:source_folder+"/css/**/*.scss",
-    js:source_folder+"/js/**/*.js",
+    js:source_folder+"/js/*.js",
     img:source_folder+"/assets/icons/**/*.{jpg,png,svg,gif,ico,webp}",
     icons:source_folder+"/assets/images/**/*.{jpg,png,svg,gif,ico,webp}",
     components: source_folder + "/css/components/*.scss",
@@ -54,7 +54,8 @@ uglify = require("gulp-uglify-es").default
 function browserSync(params){
   browsersync.init({
     server:{
-      baseDir:"./" + project_folder + "/"
+      baseDir:"./" + project_folder + "/",
+      directory:true
     },
     port:3000,
     notify:false

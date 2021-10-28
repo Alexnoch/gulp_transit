@@ -17,6 +17,7 @@
     "nodemon": "^2.0.14"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "file-type": "^16.5.3",
     "mongoose": "^6.0.12"
   }

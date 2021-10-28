@@ -1,5 +1,6 @@
 const fs = require('fs');
-const path = require('path')
+const path = require('path');
+const cors = require('cors');
 
 var express = require('express');
 var app = express();
@@ -7,19 +8,14 @@ var app = express();
 const mongoose = require('mongoose');
 const initDataBase = require('./dataBase/index.js');
 
-
-
 const users = require('./routes/user.js');
 const articles = require('./routes/articles.js');
 
 initDataBase();
 
-
+app.use(cors());
 app.use('/user', users);
 app.use('/articles', articles);
-
-
-
 
 // пользовательская страница 404
    app.use(function(req, res){
@@ -41,6 +37,34 @@ app.use('/articles', articles);
     app.get('port') + '; нажмите Ctrl+C для завершения.' );
    });
    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
 // УСТАНОВКА КУК из книги ---------------------------
 // app.use(require('cookie-parser')(credentials.cookieSecret));
 
@@ -54,9 +78,6 @@ app.use('/articles', articles);
       // req.session.userName = 'Anonymous';
       // var colorScheme = req.session.colorScheme || 'dark';
    //  res.cookie('monster', 'nom nom');
-
-
-
 
    // Чтение файла 
     // const result  = fs.readFileSync('admin.html', (err, data) => {
