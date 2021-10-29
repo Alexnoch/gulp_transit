@@ -51,7 +51,7 @@ submenu.on("click", (e) => {
   oldActiveSubMenu.removeClass('activeSubMenu');
   $(e.target).addClass("activeSubMenu");
 
-console.log(e.target,'Таргет САб меню')
+console.log(e.target.id,'Загрузка по ID рубрик')
   loadRubricArt(4,e.target.id)
   loadOn();
 });
@@ -63,7 +63,7 @@ btnViewAll.on('click', () => {
   $('body,html').animate({ scrollTop: top }, 500);
   switch (activeMenu) {
     case "articles-languages":
-      loadListArt(8,'languages','rubricHtml');
+      loadListArt(4,'languages','rubricHtml');
       break;
     case "articles-guides":
       loadListArt(4,'guides','rubricOther');

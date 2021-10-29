@@ -1,0 +1,72 @@
+.wrapper{
+  /* display: flex; */
+}
+
+.edit-panel{
+  width:800px;
+  margin-bottom:20px;
+  /* border-bottom:1px solid black; */
+}
+
+.edit-panel__menu{
+  display: flex;
+  padding:10px;
+  gap:5px;
+  background-color: rgb(146, 145, 145);
+}
+
+#image_to_server{
+  margin-left:auto;
+}
+
+.edit-panel__display{
+  width:100%;
+  height:300px;
+}
+
+.edit-panel__textarea{
+  width:99%;
+  height:100%;
+}
+
+.edit-panel__footer{
+  display: flex;
+  padding-top:20px;
+  justify-content: flex-start;
+}
+
+.select-languages-container{
+  margin-left:40px;
+}
+
+.edit-panel__send{
+  margin-top:20px;
+  margin-left:auto;
+}
+
+#languages, #others, #guides {
+  display:none;
+}
+
+
+/* Привью */
+
+#preview{
+  margin-left:40px;
+  width:800px;
+  height:350px;
+  border:1px solid blue;
+}
+
+.active{
+  display:block!important;
+}
+
+.edit-wrapper-body{
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-wrapper-panel{
+  width:800px;
+}

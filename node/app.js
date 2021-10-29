@@ -10,6 +10,7 @@ const initDataBase = require('./dataBase/index.js');
 
 const users = require('./routes/user.js');
 const articles = require('./routes/articles.js');
+const admin = require('./routes/admin.js');
 
 initDataBase();
 
@@ -18,6 +19,7 @@ app.use(cors());
 app.use(express.static('./../dist'));
 app.use('/user', users);
 app.use('/articles', articles);
+app.use('/admin', admin);
 
 // пользовательская страница 404
    app.use(function(req, res){

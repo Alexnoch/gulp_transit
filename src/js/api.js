@@ -6,7 +6,7 @@ const loadSingle = (id) =>{
   console.log('ФУнкция единственного нажатия')
   $.ajax({
     method: "GET",
-    url: `${server}/articles/one`,
+    url: `${local}/articles/one`,
     dataType: "json",
     data: {
       "id": id,
@@ -16,6 +16,7 @@ const loadSingle = (id) =>{
     const container = $('.articles');
     $(container).html(loadSigleArticle(data[0]))
     $('body,html').animate({ scrollTop: top }, 300);
+    loadOn()
     }
   })
 }
@@ -24,7 +25,7 @@ const loadListArt = (count,section,rubric) =>{
   const container = $('.articles');
   $.ajax({
     method: "GET",
-    url: `${server}/articles`,
+    url: `${local}/articles`,
     dataType: "json",
     data: {
       "count": count,
@@ -36,6 +37,8 @@ const loadListArt = (count,section,rubric) =>{
       $(container)
       .addClass('articles_flex-row')
       .html(`<a class="articles__btn-back" href="articles.html">Все статьи -> Языки </a> ${loadTemplateM(data,count)}`)
+      loadOn()
+
     }
   })
 } 
@@ -45,7 +48,7 @@ const loadRubricArt = (count,rubric) =>{
   console.log('API-> rubric funct')
   $.ajax({
     method: "GET",
-    url: `${server}/articles/rubric`,
+    url: `${local}/articles/rubric`,
     dataType: "json",
     data: {
       "count": count,
@@ -56,6 +59,8 @@ const loadRubricArt = (count,rubric) =>{
       const articlesData = data;
       $(bigContainer).html(loadTemplate(articlesData[3], articlesData[3]?.id))
       $(middleContainer).html(loadTemplateM(articlesData, amount))
+      loadOn()
+
     }
   })
 }
@@ -64,7 +69,7 @@ const initArticles = (count, section, rubric) => {
   const amount = 3
   $.ajax({
     method: "GET",
-    url: `${server}/articles`,
+    url: `${local}/articles`,
     dataType: "json",
     data: {
       "count": count,
@@ -76,6 +81,8 @@ const initArticles = (count, section, rubric) => {
       const articlesData = data;
       $(bigContainer).html(loadTemplate(articlesData[3], articlesData[3]?.id))
       $(middleContainer).html(loadTemplateM(articlesData, amount))
+      loadOn()
+
     }
   })
 }
