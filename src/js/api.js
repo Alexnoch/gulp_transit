@@ -1,4 +1,6 @@
 // AJAX - Запросы на сервер
+NODE_ENV = 'dev';
+
 const local = `http://localhost:3005`;
 const server = `http://78.155.222.130`;
 
@@ -6,7 +8,7 @@ const loadSingle = (id) =>{
   console.log('ФУнкция единственного нажатия')
   $.ajax({
     method: "GET",
-    url: `${local}/articles/one`,
+    url: `${NODE_ENV === 'dev' ? 'http://localhost:3005' : 'http://78.155.222.130'}/articles/one`,
     dataType: "json",
     data: {
       "id": id,
@@ -25,7 +27,7 @@ const loadListArt = (count,section,rubric) =>{
   const container = $('.articles');
   $.ajax({
     method: "GET",
-    url: `${local}/articles`,
+    url: `${NODE_ENV === 'dev' ? 'http://localhost:3005' : 'http://78.155.222.130'}/articles`,
     dataType: "json",
     data: {
       "count": count,
@@ -48,7 +50,7 @@ const loadRubricArt = (count,rubric) =>{
   console.log('API-> rubric funct')
   $.ajax({
     method: "GET",
-    url: `${local}/articles/rubric`,
+    url: `${NODE_ENV === 'dev' ? 'http://localhost:3005' : 'http://78.155.222.130'}/articles/rubric`,
     dataType: "json",
     data: {
       "count": count,
@@ -69,7 +71,7 @@ const initArticles = (count, section, rubric) => {
   const amount = 3
   $.ajax({
     method: "GET",
-    url: `${local}/articles`,
+    url: `${NODE_ENV === 'dev' ? 'http://localhost:3005' : 'http://78.155.222.130'}/articles`,
     dataType: "json",
     data: {
       "count": count,
@@ -82,7 +84,6 @@ const initArticles = (count, section, rubric) => {
       $(bigContainer).html(loadTemplate(articlesData[3], articlesData[3]?.id))
       $(middleContainer).html(loadTemplateM(articlesData, amount))
       loadOn()
-
     }
   })
 }
