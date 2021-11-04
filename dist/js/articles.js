@@ -54,7 +54,7 @@ const loadSigleArticle = (article) => {
 };
 // AJAX - Запросы на сервер
 
-const NODE_ENV = 'dev';
+const NODE_ENV = 'prod';
 
 const baseUrl = 
 NODE_ENV === 'prod'
