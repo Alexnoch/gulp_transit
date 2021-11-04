@@ -1,6 +1,6 @@
 // AJAX - Запросы на сервер
 
-const NODE_ENV = 'prod';
+const NODE_ENV = 'dev';
 
 const baseUrl = 
 NODE_ENV === 'prod'
