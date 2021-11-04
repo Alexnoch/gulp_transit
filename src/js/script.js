@@ -3,8 +3,6 @@ const preview = $('#preview');
 const content = adminTextarea.val();
 var rubricSend = '';
 
-
-
 $('.edit-panel__menu').on('click',(e)=>{
   const content = adminTextarea.val();
 
