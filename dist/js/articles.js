@@ -44,7 +44,9 @@ const loadSigleArticle = (article) => {
       </div>
       <p class="single-article__date">${article.date}</p>
       <h4 class="single-article__title">${article.title}</h4>
-      <p class="single-article__text">${article.text}</p>  
+      <div class="single-article__text">
+      ${article.text}
+      </div>
       <div class="single-article__back-container">
         <a class="single-article__back" href="articles.html">Назад</a>
       </div>

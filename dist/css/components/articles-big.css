@@ -67,6 +67,7 @@
 }
 .article-big__content {
   width: 60%;
+  overflow: hidden;
 }
 @media (max-width: 768px) {
   .article-big__content {
