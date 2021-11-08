@@ -1,11 +1,9 @@
 // AJAX - Запросы на сервер
 
-const NODE_ENV = 'prod';
-
-const baseUrl = 
-NODE_ENV === 'prod'
-? `http://alexnoch-blog.ru`
-: `http://localhost:3005`;
+const devServer = `http://localhost:3000`;
+const backServer = `http://localhost:3005`;
+const production = `http://alexnoch-blog.ru`;
+const baseUrl = production;
 // const local = 
 // const server = `http://78.155.222.130`;
 
