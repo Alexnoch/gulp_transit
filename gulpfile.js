@@ -47,6 +47,7 @@ group_media = require("gulp-group-css-media-queries");
 clean_css = require("gulp-clean-css");
 rename = require("gulp-rename");
 uglify = require("gulp-uglify-es").default
+
 // imagemin = require("gulp-imagemin")
 
 
@@ -77,10 +78,8 @@ function html(){
 function css(){
   src(path.src.components)
   .pipe(
-    scss({
-      outputStyle:"expanded"
-    })
-  )
+    scss({outputStyle: 'expanded'}))
+    .on('error', scss.logError)
     .pipe(dest(path.build.components))
     .pipe(browsersync.stream())
 

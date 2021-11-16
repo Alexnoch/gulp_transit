@@ -63,8 +63,6 @@ const baseUrl = production;
 // const local = 
 // const server = `http://78.155.222.130`;
 
-
-
 const loadSingle = (id) =>{
   $.ajax({
     method: "GET",
