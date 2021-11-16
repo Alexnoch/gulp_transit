@@ -4,11 +4,12 @@
   padding-top: 100px;
   padding-bottom: 40px;
   margin: 0 auto;
-  padding: 100px 10px 40px 10px;
+  padding: 45px 10px 40px 10px;
 }
 @media (max-width: 580px) {
   .footer {
-    padding-top: 80px;
+    padding-top: 35px;
+    padding-bottom: 30px;
   }
 }
 
@@ -20,18 +21,53 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 35px 0 0 0;
   margin-bottom: 55px;
+}
+@media (max-width: 620px) {
+  .footer__top {
+    margin-bottom: 30px;
+  }
+}
+
+.footer__arrowUp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 300;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
 }
 
 .footer__body {
   display: flex;
   margin: 0 auto;
 }
+@media (max-width: 992px) {
+  .footer__body {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 620px) {
+  .footer__body {
+    align-items: flex-end;
+  }
+}
 
 .footer__menu {
   display: flex;
   align-self: flex-end;
+}
+@media (max-width: 992px) {
+  .footer__menu {
+    max-width: 100%;
+  }
+}
+@media (max-width: 620px) {
+  .footer__menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .footer__menu > a {
@@ -44,11 +80,24 @@
   border-right: 1px solid white;
   padding: 0 15px 0 15px;
 }
+@media (max-width: 620px) {
+  .footer__menu > a {
+    padding: 5px 0;
+    border: none;
+  }
+}
 
 .footer__social-wrapper {
   display: flex;
   justify-content: center;
-  width: 100%;
+  flex-grow: 2;
+  min-width: 192px;
+}
+@media (max-width: 992px) {
+  .footer__social-wrapper {
+    margin-top: 20px;
+    justify-content: flex-start;
+  }
 }
 
 .footer__social {
@@ -59,22 +108,20 @@
   margin-right: 15px;
 }
 
-@media (max-width: 580px) {
-  img {
-    margin-bottom: 0;
-    margin-right: 10px;
-    width: 30px;
-  }
-}
-
 .footer__call-btn {
-  padding: 7px 55px;
-  height: 29px;
+  padding: 4px 55px;
   color: white;
-  line-height: 29px;
+  font-size: 12px;
+  color: #FFFFFF;
   text-align: center;
   border: 1px solid #FFFFFF;
   border-radius: 7px;
+  transition: 0.5s;
+}
+
+.footer__call-btn:hover {
+  color: black;
+  background-color: white;
 }
 
 .footer__bottom {
@@ -82,13 +129,22 @@
   margin-top: 50px;
   padding-top: 45px;
 }
+@media (max-width: 620px) {
+  .footer__bottom {
+    margin-top: 35px;
+    padding-top: 15px;
+  }
+}
 
 .footer__conficial {
   color: #C4C4C4;
   font-size: 12px;
+  font-weight: 300;
 }
 
 .footer__call {
+  display: flex;
+  align-items: flex-end;
   margin-left: auto;
 }
 

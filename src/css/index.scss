@@ -396,6 +396,7 @@ $accent: #6d00bf;
 }
 
 .main__skills-item {
+  opacity: 0.5;
   display: flex;
   align-items: center;
   margin-bottom: 35px;
@@ -435,6 +436,10 @@ $accent: #6d00bf;
   font-size: 36px;
   color: white;
   cursor: pointer;
+}
+
+.main__skills-item:hover{
+  opacity: 1;
 }
 
 .main__button-down {
