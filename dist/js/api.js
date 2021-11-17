@@ -3,7 +3,7 @@
 const devServer = `http://localhost:3000`;
 const backServer = `http://localhost:3005`;
 const production = `http://alexnoch-blog.ru`;
-const baseUrl = production;
+const baseUrl = backServer;
 // const local = 
 // const server = `http://78.155.222.130`;
 
@@ -13,7 +13,7 @@ const loadSingle = (id) =>{
     url: `${baseUrl}/articles/one`,
     dataType: "json",
     data: {
-      "id": id,
+      "_id": id,
     },
     success: (data) => {
     const container = $('.articles');
@@ -24,31 +24,9 @@ const loadSingle = (id) =>{
   })
 }
 
-const loadListArt = (count,section,rubric) =>{
-  const container = $('.articles');
-  $.ajax({
-    method: "GET",
-    url: `${baseUrl}/articles`,
-    dataType: "json",
-    data: {
-      "count": count,
-      "section": section,
-      "rubric": rubric,
-    },
-    success: (data) => {
-      console.log(data, 'Список')
-      $(container)
-      .addClass('articles_flex-row')
-      .html(`<a class="articles__btn-back" href="articles.html">Все статьи -> Языки </a> ${loadTemplateM(data,count)}`)
-      loadOn()
 
-    }
-  })
-} 
 
 const loadRubricArt = (count,rubric) =>{
-  const amount = 3
-  console.log('API-> rubric funct')
   $.ajax({
     method: "GET",
     url: `${baseUrl}/articles/rubric`,
@@ -60,16 +38,84 @@ const loadRubricArt = (count,rubric) =>{
     success: (data) => {
       console.log(data, 'Рубрика')
       const articlesData = data;
-      $(bigContainer).html(loadTemplate(articlesData[3], articlesData[3]?.id))
-      $(middleContainer).html(loadTemplateM(articlesData, amount))
+      $(middleContainer).html('');
+      $(middleContainer).html(`<div class="middle-all">${loadTemplateM(articlesData, 8)}</div>`);
       loadOn()
 
     }
   })
 }
 
-const initArticles = (count, section, rubric) => {
+const initArticles = (count, section, rubric, temp) => {
   const amount = 3
+
+  switch(temp){
+    case 'middle':
+      $.ajax({
+        method: "GET",
+        url: `${baseUrl}/articles`,
+        dataType: "json",
+        data: {
+          "count": count,
+          "section": section,
+          "rubric": rubric,
+        },
+        success: (data) => {
+          console.log(data, 'Количество')
+          const articlesData = data;
+          // $(bigContainer).html(loadTemplate(articlesData[3], articlesData[3]?.id))
+          $(middleContainer).append(`<div class="${temp}">${loadTemplateM(articlesData, count)}</div>`)
+          loadOn()
+        }
+      })
+      break;
+    case 'big-left' :
+      $.ajax({
+        method: "GET",
+        url: `${baseUrl}/articles`,
+        dataType: "json",
+        data: {
+          "count": count,
+          "section": section,
+          "rubric": rubric,
+        },
+        success: (data) => {
+          console.log(data, 'Количество')
+          const articlesData = data;
+          $(middleContainer).append()
+          $(middleContainer).append(`
+          <div class="${temp}">
+            ${loadTemplateBig(articlesData[1])}
+            ${loadTemplateL(articlesData, 1)}
+          </div>`)
+          loadOn()
+        }
+      })
+      break;
+      case 'big-right' :
+        $.ajax({
+          method: "GET",
+          url: `${baseUrl}/articles`,
+          dataType: "json",
+          data: {
+            "count": count,
+            "section": section,
+            "rubric": rubric,
+          },
+          success: (data) => {
+            console.log(data, 'Количество')
+            const articlesData = data;
+            // $(bigContainer).html(loadTemplate(articlesData[3], articlesData[3]?.id))
+            $(middleContainer).append(`<div class="${temp}">${loadTemplateM(articlesData, count)}</div>`)
+            loadOn()
+          }
+        })
+        break;
+  }
+ 
+}
+
+const initNewHtml = (count, section, rubric, temp,name)=>{
   $.ajax({
     method: "GET",
     url: `${baseUrl}/articles`,
@@ -80,11 +126,49 @@ const initArticles = (count, section, rubric) => {
       "rubric": rubric,
     },
     success: (data) => {
-      console.log(data, 'Количество')
-      const articlesData = data;
-      $(bigContainer).html(loadTemplate(articlesData[3], articlesData[3]?.id))
-      $(middleContainer).html(loadTemplateM(articlesData, amount))
+      $(middleContainer).append(`
+      <div>
+      <p class="rubricName">${name}</p>
+      <div class="${temp}">${loadTemplateM(data, count)}</div>
+        <p class="view-all">
+          Посмотреть все статьи
+        </p>
+      </div>`)
       loadOn()
     }
   })
+}
+
+const initNewHtmlBig = (count, section, rubric, temp,name) =>{
+   $.ajax({
+        method: "GET",
+        url: `${baseUrl}/articles`,
+        dataType: "json",
+        data: {
+          "count": count,
+          "section": section,
+          "rubric": rubric,
+        },
+        success: (data) => {
+          console.log(data, 'Количество')
+          const articlesData = data;
+          $(middleContainer).append()
+          $(middleContainer).append(`
+          <div>
+          <p class="rubricName">${name}</p>
+          <div class="${temp}">
+            ${loadTemplateBig(articlesData[1])}
+            ${loadTemplateL(articlesData, 1)}
+          </div>
+          <p class="view-all">Смотреть все</p>
+          </div>`)
+          loadOn()
+        }
+      })
+}
+
+const initNew = ()=>{
+  initNewHtml(3, "languages", "rubricHtml","middle","HTML");
+  initNewHtmlBig(2, "languages", "rubricCss","big-left","CSS");
+  initNewHtml(3, "languages", "rubricJavascript","middle","JAVASCRIPT");
 }

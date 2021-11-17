@@ -64,6 +64,7 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  font-family:'Oswald', sans-serif;
 }
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
@@ -155,8 +156,7 @@ $accent: #6d00bf;
 }
 
 .activeSubMenu {
-  color: white !important;
-  background-color: $accent !important;
+  color: $accent!important;
 }
 
 .border-active {

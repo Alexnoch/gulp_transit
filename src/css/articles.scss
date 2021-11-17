@@ -1,9 +1,11 @@
 @import "index.scss";
 @import "./components/header.scss";
 @import "components/footer.scss";
-@import "components/articles-big.scss";
+@import "components/articles-l.scss";
+
 @import "components/articles-middle.scss";
 @import "components/singleArticles.scss";
+@import "components/articles-big.scss";
 
 .articles {
   margin: 0 auto;
@@ -11,8 +13,8 @@
 }
 
 .articles__header {
-  margin-top: 155px;
-  margin-bottom: 85px;
+  margin-top: 85px;
+  margin-bottom: 35px;
 
   @media (max-width: 580px) {
    margin-top: 100px;
@@ -21,34 +23,18 @@
 }
 
 .articles__title {
+  font-family: 'Oswald';
   position: relative;
-  margin-bottom: 70px;
-  font-size: 30px;
-  letter-spacing: 0.05em;
-  font-weight: bolder;
-  text-transform: uppercase;
+ 
   text-align: center;
+  font-weight: 700;
+font-size: 45px;
+letter-spacing: 0.22em;
+color: #0A2550;
 
   @media(max-width:580px){
     font-size: 24px;
   }
-}
-
-.articles__title::after {
-  content: "";
-  position: absolute;
-  bottom: -30px;
-  width: 540px;
-  height: 1px;
-  background-color: $accent;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-
-  @media(max-width:580px){
-    width:100px;
-  }
-
 }
 
 .articles__text {
@@ -59,11 +45,23 @@
   letter-spacing: 0.05em;
 }
 
+.articles__wrapper-rubric{
+  width:100%;
+  right:0;
+  left:0;
+  margin: 0 auto;
+  position: absolute;
+  background-color: black;
+}
+
 .articles__rubric {
+  max-width:1408px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 100px;
+  padding: 15px 0 35px 0;
+  // background-color: #000000;
 
   @media(max-width:580px){
     margin-bottom: 40px;
@@ -82,13 +80,15 @@
   }
 
   li {
+   
     margin-right: 47px;
   }
 }
 
 .articles__rubric-item {
+  font-family: 'Oswald';
   text-decoration: none;
-  color: #000000;
+  color:white;
   letter-spacing: 0.125em;
   font-weight: bold;
   cursor: pointer;
@@ -103,16 +103,15 @@
 }
 
 .articles__submenu-item {
-  margin-right: 40px;
+  font-family: 'Oswald';
+  margin-right: 160px;
   padding: 8px 20px;
   // background-color: #e5c3ff;
   text-decoration: none;
-  color: $accent;
-  border:2px solid;
-  letter-spacing: 0.125em;
-  font-weight: bold;
+  color: white;
+  border:1px solid;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 5px;
 
   @media(max-width:580px){
     padding: 8px 15px;
@@ -123,7 +122,6 @@
 
 .articles__submenu-item:hover {
   color: white;
-  background-color: $accent;
 }
 
 .articles__submenu-guide {
@@ -138,13 +136,18 @@
   }
 }
 
+.articles__content{
+  margin-top: 220px;
+}
+
 .articles__submenu-other {
   display: none;
 }
 
 .articles__bottom-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  // justify-content: space-between;
 
   @media(max-width:768px){
     flex-direction: column;
@@ -200,7 +203,52 @@
   text-decoration: none;
 }
 
+.middle, .big-right, .big-left{
+  display: flex;
+  margin-bottom:25px;
+}
 
+.middle{
+  justify-content: space-between;
+}
 
+.middle-all{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.rubricName{
+  font-family:"Oswald";
+font-weight: bold;
+font-size: 30px;
+letter-spacing: 0.05em;
+/* основной цвет */
+color: #0A2550;
+margin-bottom:25px;
+}
+
+.view-all{
+  // margin-top:25px;
+  margin-left:auto;
+  text-align:center;
+  height:28px;
+  width:164px;
+  margin-bottom:30px;
+  background: #0A2550;
+border-radius: 3px;
+font-weight: bold;
+font-size: 12px;
+line-height: 28px;
+color: #FFFFFF;
+}
+
+.article-middle__read{
+  cursor:pointer;
+}
+
+.article-middle__read:hover{
+  background:rgba(10, 37, 80, 0.85);
+}
 
 

@@ -1,4 +1,5 @@
 @@include('./loadTemplateM.js');
+@@include('./loadTemplateL.js');
 @@include('./loadTemplate.js');
 @@include('./loadSingleArticle.js');
 @@include('./api.js');
@@ -8,13 +9,13 @@ const middleContainer = $(".articles__bottom-container");
 
 // Открыть статью по клику
 const loadOn = () => {
-  $('.article-middle__title, .article-middle__text, .article-big__title, .article-big__text').on('click', (e) => {
+  $('.article-middle__title, .article-middle__text, .article-big__title, .article-big__text, .article-middle__read').on('click', (e) => {
     const id = e.target.id;
     loadSingle(id)
   })
 }
 
-// Главное меню----------------------------
+// Главное меню---------------------------- ЯЗЫКИ, ГАЙДЫ , РАЗНОЕ
 const articlesMenuContainer = $(".articles__rubric-item");
 articlesMenuContainer.on("click", function (e) {
   let target = e.target.id;
@@ -31,19 +32,26 @@ articlesMenuContainer.on("click", function (e) {
 
   switch (target) {
     case "articles-languages":
-      initArticles(4, "languages", "rubricHtml");
+      middleContainer.html('');
+      initArticles(3, "languages", "rubricHtml","middle");
+      initArticles(2, "languages", "rubricCss","big-left");
+      initArticles(3, "languages", "rubricJavascript","middle");
       break;
     case "articles-guides":
-      initArticles(4, "guides", "rubricOther");
+      middleContainer.html('')
+      initArticles(3, "guides", "rubricOther","middle");
+      initArticles(2, "guides", "rubricOther","big-left");
       break;
     case "articles-others":
-      initArticles(4, "others", "rubricNews");
+      middleContainer.html('')
+      initArticles(3, "others", "rubricNews","middle");
+      initArticles(2, "others", "rubricNews","big-left");
       break;
   }
   loadOn();
 });
 
-// Меню рубрик
+// Меню рубрик -----------HTML CSS WEBPACK JAVASCRIPT
 const submenu = $(".articles__submenu-item");
 submenu.on("click", (e) => {
   // Саб меню выделение цветом
@@ -52,33 +60,13 @@ submenu.on("click", (e) => {
   $(e.target).addClass("activeSubMenu");
 
 console.log(e.target.id,'Загрузка по ID рубрик')
-  loadRubricArt(4,e.target.id)
+  loadRubricArt(8,e.target.id,temp='middle')
   loadOn();
 });
 
-// Переход смотреть все статьи раздела
-const btnViewAll = $('#viewAll');
-btnViewAll.on('click', () => {
-  const activeMenu = $('.active-menu')[0].id
-  $('body,html').animate({ scrollTop: top }, 500);
-  switch (activeMenu) {
-    case "articles-languages":
-      loadListArt(4,'languages','rubricHtml');
-      break;
-    case "articles-guides":
-      loadListArt(4,'guides','rubricOther');
-      break;
-    case "articles-others":
-      loadListArt(8,'others','rubricNews');
-    break;
-  }
-  loadOn();
-})
-
-
 
 $(document).ready(() => {
-  initArticles(4, "languages", "rubricHtml");
+  initNew();
   loadOn();
 })
 

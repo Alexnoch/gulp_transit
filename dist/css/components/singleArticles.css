@@ -1,8 +1,25 @@
 .single-article {
   margin: 80px auto 50px auto;
 }
+.single-article__top {
+  display: flex;
+  flex-direction: column;
+}
 .single-article__breadCrumbs {
-  text-decoration: none;
+  letter-spacing: 0.09em;
+}
+.single-article__breadCrumbs-name {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: rgba(10, 37, 80, 0.6);
+}
+.single-article__border {
+  max-width: 650px;
+  margin: 0 auto;
+  background-color: #f1f1f1;
+  padding: 5px 20px;
 }
 .single-article__image {
   display: flex;
@@ -19,7 +36,7 @@
 .single-article__image img {
   object-fit: cover;
   height: 400px;
-  width: 500px;
+  width: 650px;
 }
 @media (max-width: 580px) {
   .single-article__image img {
@@ -30,9 +47,11 @@
 }
 .single-article__date {
   margin-bottom: 30px;
-  font-weight: bold;
   font-size: 14px;
-  letter-spacing: 0.03em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: rgba(10, 37, 80, 0.6);
 }
 @media (max-width: 580px) {
   .single-article__date {
@@ -40,11 +59,10 @@
   }
 }
 .single-article__title {
-  margin-bottom: 20px;
   font-weight: bold;
   font-size: 48px;
   line-height: 75px;
-  color: #6d00bf;
+  color: #0A2550;
 }
 @media (max-width: 580px) {
   .single-article__title {
@@ -53,11 +71,13 @@
   }
 }
 .single-article__text {
+  background-color: #f3f3f3;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 650px;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.03em;
+  color: #0A2550;
 }
 .single-article__text p {
   letter-spacing: 0.03em;
