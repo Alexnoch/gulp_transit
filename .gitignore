@@ -3,6 +3,8 @@
 ./node/*node_modules/*
 # dependencies
 /node_modules
+*daemon/node_modules
+daemon/node_modules/*
 /.pnp
 .pnp.js
 
