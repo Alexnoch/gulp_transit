@@ -9,6 +9,8 @@ initDB();
 app.use(express.json());
 
 app.use('/', express.static('./../dist'));
+app.use('/images/articles/', express.static('./../images/articles'))
+
 app.use('/articles', routes.articles);
 
 
