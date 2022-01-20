@@ -1,15 +1,13 @@
 FROM node:14
 
-WORKDIR /home/site/dist
+WORKDIR /home/site
 
-COPY ./dist .
+COPY . .
 
 WORKDIR /home/site/daemon
 
 COPY ./daemon/package*.json ./
 
 RUN npm install
-
-COPY ./daemon .
 
 CMD ["npm", "start"]

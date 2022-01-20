@@ -1,12 +1,15 @@
 const express = require('express');
 const app = express();
 
+const routes = require('./routes/index.js');
+
+const initDB = require('./dataBase/index.js');
+initDB();
 
 app.use(express.json());
 
-
 app.use('/', express.static('./../dist'));
-// app.use('/articles', routes.articles);
+app.use('/articles', routes.articles);
 
 
 // пользовательская страница 404
