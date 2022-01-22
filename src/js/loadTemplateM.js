@@ -1,7 +1,7 @@
 const loadTemplateM = (articlesData, amount) => {
-
+  let result = articlesData.length
   let middleArticle = '';
-  for (let i = 0; i < amount; i++) {
+  for (let i = 0; i < result; i++) {
     middleArticle += ` <div class="article-middle">
             <div class="article-middle__container">
               <div class="article-middle__image">

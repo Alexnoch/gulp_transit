@@ -1,7 +1,7 @@
 const loadTemplateM = (articlesData, amount) => {
-
+  let result = articlesData.length
   let middleArticle = '';
-  for (let i = 0; i < amount; i++) {
+  for (let i = 0; i < result; i++) {
     middleArticle += ` <div class="article-middle">
             <div class="article-middle__container">
               <div class="article-middle__image">
@@ -211,6 +211,7 @@ const initNewHtml = (count, section, rubric, temp,name)=>{
       "rubric": rubric,
     },
     success: (data) => {
+      console.log(data,'ДАТА 1')
       $(middleContainer).append(`
       <div>
       <p class="rubricName">${name}</p>
@@ -252,9 +253,10 @@ const initNewHtmlBig = (count, section, rubric, temp,name) =>{
       })
 }
 
+// Загрузка начальных стайте шаг 2 
 const initNew = ()=>{
-  initNewHtml(3, "languages", "rubricHtml","middle","HTML");
   initNewHtmlBig(2, "languages", "rubricCss","big-left","CSS");
+  initNewHtml(3, "languages", "rubricHtml","middle","HTML");
   initNewHtml(3, "languages", "rubricJavascript","middle","JAVASCRIPT");
 };
 

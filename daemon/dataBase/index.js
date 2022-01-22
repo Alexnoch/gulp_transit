@@ -11,7 +11,7 @@ const initDataBase = async () => {
     { useUnifiedTopology: true, useNewUrlParser: true },
     (err) => {
       if (err) {
-        console.log(err);
+        console.log(err,'Ошибка');
         process.exit(ExitCode.error);
       }
       console.log("Успешное подключение to DB");

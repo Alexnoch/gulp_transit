@@ -26,17 +26,7 @@ for (let a = 1; a <= $(".mobile ul li").length; a++){
     },1000)
   }
 
-//   $(window).resize(function() {
-//     if(1150 > window.innerWidth){
-//        $('.revealator-slideright').removeClass('revealator-slideright').addClass('revealator-slideup')
-//        $('.revealator-slideleft').removeClass('revealator-slideleft').addClass('revealator-slideup')
-//     }
-//  }
- 
-//  );
-
 // Кнопка наверх
-
 $('body').append('<div class="upbtn"></div>');
 $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
@@ -55,3 +45,14 @@ $('.upbtn').on('click',function() {
     }, 500);
     return false;
 });
+
+
+//   $(window).resize(function() {
+//     if(1150 > window.innerWidth){
+//        $('.revealator-slideright').removeClass('revealator-slideright').addClass('revealator-slideup')
+//        $('.revealator-slideleft').removeClass('revealator-slideleft').addClass('revealator-slideup')
+//     }
+//  }
+ 
+//  );
+

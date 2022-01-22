@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express();
-
+const initDB = require('./dataBase/index.js');
 const routes = require('./routes/index.js');
 
-const initDB = require('./dataBase/index.js');
 initDB();
 
 app.use(express.json());
 
 app.use('/', express.static('./../dist'));
+// app.use('/assets/images/', express,static('./../dist'))
 app.use('/images/articles/', express.static('./../images/articles'))
 
 app.use('/articles', routes.articles);

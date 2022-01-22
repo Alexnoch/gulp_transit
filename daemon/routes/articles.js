@@ -6,17 +6,27 @@ router.use(function timeLog(req, res, next) {
     console.log('Time: ', Date.now());
     next();
   });
-  
-  router.get('/', function (req, res) {
-    const counts = Number(req.query.count);
-    const section = req.query.section;
-    const rubric = req.query.rubric;
-    res.set("Content-Type", "application/json");
-    res.status(200);
-    model.Articles
-    .find({rubric:rubric})
-    .limit(counts)
-    .then((article) =>{res.send(JSON.stringify(article))});
+ 
+  router.post('/', function (req, res) {
+    console.log(req,'Зашло ------------------------------------');
+    async function testing(){
+      try{
+        const counts = Number(req?.body?.count);
+        const section = req?.body?.section;
+        const rubric = req?.body?.rubric;
+        const result = await model.Articles.find({rubric:rubric}).limit(counts);
+        console.log(req,'Зашло')
+        console.log(req?.body,'бАДИ******************************************')
+        res.set("Content-Type", "application/json");
+        res.status(200);
+        res.send(JSON.stringify(result))
+      }catch{
+        console.log(req,'РЕГ')
+        console.log(req?.body,'бАДИ******************************************')
+        res.send(JSON.stringify({status:false}))
+      }
+    }
+    testing();
   });
 
   router.get('/one', function (req, res) {
